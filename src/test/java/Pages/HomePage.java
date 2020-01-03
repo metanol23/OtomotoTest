@@ -17,7 +17,7 @@ public class HomePage extends pages.BasePage {
     //*********App Elements*********
     By device = By.xpath("//*[@text='Części']");
     By showMoreParameters = By.xpath("//*[@text='Więcej parametrów']");
-    By brandSelection = By.xpath("//*[@text='Marka Pojazdu']");
+    By brandSelection = By.xpath("//*[@text='Marka pojazdu']");
 
 
     //Go to PartsPage
@@ -31,6 +31,10 @@ public class HomePage extends pages.BasePage {
     }
     public HomePage selectBrand(){
         click(brandSelection);
+        return this;
+    }
+    public HomePage swipeToBottom(){
+        swipeDown(10);
         return this;
     }
 }

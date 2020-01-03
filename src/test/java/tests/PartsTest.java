@@ -28,13 +28,14 @@ public class PartsTest extends BaseTest {
         public void selectRIM () {
 
         System.out.println("Test completed successfully");
-        
+
             //*************PAGE INSTANTIATIONS*************
             pages.HomePage homePage = new pages.HomePage(driver);
 
             //*************PAGE METHODS********************
             homePage.GoToParts()
               .showMoreParameters()
+                    .swipeToBottom()
                     .selectBrand();
 
             /*  .goToParts()
