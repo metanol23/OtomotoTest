@@ -18,50 +18,34 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import org.testng.annotations.Test;
+//import pages.HomePage;
+//import pages.PartsPage;
 
-public class PartsTest {
-
-    private By devices = By.xpath("//*[@text='Części']");
-
-
+public class PartsTest extends BaseTest {
 
     @Test
-    public void appiumTest() throws MalformedURLException {
+        public void selectRIM () {
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("deviceName", "My Mobile Device");
-        caps.setCapability("udid", "3300955051847239");
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "6");
-        caps.setCapability("automationName", "UiAutomator2");
-        caps.setCapability("appPackage", "pl.otomoto");
-        caps.setCapability("appActivity", "com.fixeads.verticals.cars.startup.view.activities.StartupActivity");
-        caps.setCapability("browserName", "");
+        System.out.println("Test completed successfully");
+        
+            //*************PAGE INSTANTIATIONS*************
+            pages.HomePage homePage = new pages.HomePage(driver);
 
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
+            //*************PAGE METHODS********************
+            homePage.GoToParts()
+              .showMoreParameters()
+                    .selectBrand();
 
-        FluentWait<MobileDriver> wait = new FluentWait<>((MobileDriver) driver)
-                .pollingEvery(Duration.ofMillis(500))
-                .withTimeout(Duration.ofSeconds(30))
-                .ignoring(NoSuchElementException.class)
-                .ignoring(StaleElementReferenceException.class)
-                .ignoring(NullPointerException.class)
-                .ignoring(ClassCastException.class);
+            /*  .goToParts()
+                    .selectBrandOfCar("Mercedes??")
+                    .selectRims(("E-posta adresiniz veya şifreniz hatalı"))
+                    .resultsOfSelection();
+
+                   */
 
 
-        //wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//*[@text='Części']"))));
-       // wait.until(ExpectedConditions.visibilityOfElementLocated((devices)));
-        //if (driver.findElement(By.xpath("//*[@text='Części']")).isDisplayed()) {
-           // System.out.println("Test completed successfully");
-        //}
-        //driver.findElement(By.xpath("//*[@text='Części']")).click();
-
-
-
-
-
-        driver.quit();
-
-    }
+        }
 
 }
+
