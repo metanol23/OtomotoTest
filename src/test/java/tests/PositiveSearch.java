@@ -19,12 +19,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class PartsTest {
-
-    private By devices = By.xpath("//*[@text='Części']");
-
-
-
+public class PositiveSearch {
     @Test
     public void appiumTest() throws MalformedURLException {
 
@@ -48,20 +43,12 @@ public class PartsTest {
                 .ignoring(NullPointerException.class)
                 .ignoring(ClassCastException.class);
 
-
-        //wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//*[@text='Części']"))));
-       // wait.until(ExpectedConditions.visibilityOfElementLocated((devices)));
-        //if (driver.findElement(By.xpath("//*[@text='Części']")).isDisplayed()) {
-           // System.out.println("Test completed successfully");
-        //}
-        //driver.findElement(By.xpath("//*[@text='Części']")).click();
-
-
-
-
+        driver.resetApp();
+        wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//*[@text='Części']"))));
+        PartsPage partsPage = new PartsPage(driver);
+        partsPage.goToPartsPage();
+        System.out.println("Test completed successfully");
 
         driver.quit();
-
     }
-
 }
