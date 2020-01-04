@@ -1,15 +1,13 @@
-package pages;
+package Pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.rmi.runtime.Log;
 
-public class HomePage extends pages.BasePage {
+
+public class PartsPage extends Pages.BasePage {
 
     //*********Constructor*********
-    public HomePage (AndroidDriver driver) {
+    public PartsPage (AndroidDriver driver) {
         super(driver);
     }
 
@@ -25,38 +23,38 @@ public class HomePage extends pages.BasePage {
     By results = By.xpath("//*[@text='Pokaż wyniki']");
     By AnyResultShown = By.id("pl.otomoto:id/topHeader");
 
-    //Go to PartsPage
-    public HomePage GoToParts(){
+    //Handling - PartsPage
+    public PartsPage GoToParts(){
         click(device);
         return this;
     }
-    public HomePage showMoreParameters(){
+    public PartsPage showMoreParameters(){
         click(showMoreParameters);
         return this;
     }
-    public HomePage selectBrand(){
+    public PartsPage selectBrand(){
         click(brandSelection);
         return this;
     }
-    public HomePage swipeToBottom(){
+    public PartsPage swipeToBottom(){
         swipeDown(1);
         return this;
     }
-    public HomePage typeBrandNameAndConfirm(String brandName){
+    public PartsPage typeBrandNameAndConfirm(String brandName){
         sendKeys(findBrandField, brandName);
         click(foundBrand);
         return this;
     }
-    public HomePage selectRims(){
+    public PartsPage selectRims(){
         click(parts);
         click(rim);
         return this;
     }
-    public HomePage showResults(){
+    public PartsPage showResults(){
         click(results);
         return this;
     }
-    public HomePage areThereAnyRims(){
+    public PartsPage areThereAnyRims(){
         areResultsPresent(AnyResultShown);
         return this;
     }
