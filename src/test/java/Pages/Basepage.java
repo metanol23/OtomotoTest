@@ -54,8 +54,23 @@ class BasePage {
                         .release().perform();
             }
         } catch (Exception e) {
-            //print error or something
+            System.out.println("I cannot swipe to bottom");
         }
     }
+    public void sendKeys (By elementBy, String text) {
+        waitVisibility(elementBy);
+        driver.findElement(elementBy).sendKeys(text);
+    }
+    public void areResultsPresent(By elementBy){
+        try {
+            waitVisibility(elementBy);
+            driver.findElement(elementBy);
+            System.out.println("Test OK Rims found");
+        } catch (NoSuchElementException e) {
+            System.out.println("No results Test fail");
+        }
+
+    }
+
 
 }
